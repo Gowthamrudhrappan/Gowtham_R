@@ -364,6 +364,15 @@
     *{animation:none !important;transition:none !important;}
   }
 
+
+/* Visible motion layer: CSS-only orbital rings also animate if canvas rendering is unavailable. */
+.lab-scene:before{animation:labOrbitA 16s linear infinite;will-change:transform}
+.lab-scene:after{animation:labOrbitB 21s linear infinite;will-change:transform}
+#orbCanvas{filter:drop-shadow(0 0 28px rgba(121,157,245,.18))}
+@keyframes labOrbitA{from{transform:rotateX(67deg) rotateZ(-18deg)}to{transform:rotateX(67deg) rotateZ(342deg)}}
+@keyframes labOrbitB{from{transform:rotateX(67deg) rotateZ(34deg)}to{transform:rotateX(67deg) rotateZ(-326deg)}}
+.lab-scene{background:radial-gradient(ellipse at 50% 48%,rgba(92,125,203,.08),transparent 57%)}
+
 /* ===== Portfolio Lab redesign ===== */
 body{height:auto;min-height:100vh;overflow-x:hidden;overflow-y:auto;background:#0b0c10;color:#f4f3ef;transition:background .35s,color .35s}
 .blob-bg{display:none}
